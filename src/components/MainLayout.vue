@@ -19,7 +19,7 @@ const messages = ref([
   { message: "text", isMyMessage: true },
   { message: "text", isMyMessage: false },
   { message: "text", isMyMessage: true },
-  { message: "last2", isMyMessage: false },
+  { message: "last3", isMyMessage: false },
 ]);
 let count = 0 
 
