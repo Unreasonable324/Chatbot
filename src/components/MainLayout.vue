@@ -49,7 +49,7 @@ watch(messages.value, () => {
 
 </script>
 <template>
-  <div class="main-wrapper">
+  <div class="main-wrapper" :style="`max-height: ${maxH+50}px`">
     <div class="messages" :style="`max-height: ${maxH}px`">
     <div class=" wrap" :style="`min-height: ${maxH}px`">
       <div class="message" v-for="i in messages">{{ i.message }}</div>
