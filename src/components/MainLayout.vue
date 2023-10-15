@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ButtonCartFooter from "./ButtonCartFooter.vue";
-import { computed, ref, watch } from "vue";
+import {  ref, watch } from "vue";
 const message = ref("123");
 const isMyMessage = ref(false);
 const messages = ref([
@@ -19,17 +19,19 @@ const messages = ref([
   { message: "text", isMyMessage: true },
   { message: "text", isMyMessage: false },
   { message: "text", isMyMessage: true },
-  { message: "last", isMyMessage: false },
+  { message: "last2", isMyMessage: false },
 ]);
+let count = 0 
 
-function sendMessage(message = '1231') {
+function sendMessage() {
+  count++
   isMyMessage.value = !isMyMessage.value;
-  messages.value.push({ message: message, isMyMessage: isMyMessage.value });
+  messages.value.push({ message: count+'', isMyMessage: isMyMessage.value });
 }
-const maxH = computed(() => {
-  sendMessage(window.screen.height+'')
-  return window.screen.height - 50;
-});
+// const maxH = computed(() => {
+//   sendMessage(window.screen.height+'')
+//   return window.screen.height - 50;
+// });
 const itemRefs = ref([]);
 function lastMessageScroll(b: string) {
   var e = itemRefs.value;
@@ -51,8 +53,8 @@ watch(messages.value, () => {
 </script>
 <template>
   <div class="main-wrapper" >
-    <div class="messages" :style="`max-height: ${maxH}px`">
-    <div class=" wrap" :style="`min-height: ${maxH}px`">
+    <div class="messages" >
+    <div class=" wrap" >
       <div class="message" v-for="i in messages">{{ i.message }}</div>
     </div>
     <div class="" ref="itemRefs"></div>
@@ -71,9 +73,12 @@ watch(messages.value, () => {
   flex-direction: column;
   gap: 4px;
   justify-content: flex-end;
+  min-height: calc(100vh - 50px);
+
 }
 .messages {
   flex: 1;
   overflow: auto;
+  max-height: calc(100vh - 50px);
 }
 </style>

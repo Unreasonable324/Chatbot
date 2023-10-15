@@ -3,7 +3,7 @@ import MainLayout from "./components/MainLayout.vue";
 </script>
 
 <template>
-  <MainLayout></MainLayout>
+  <MainLayout @click="()=>{}"></MainLayout>
 </template>
 
 <style scoped></style>
