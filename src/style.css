@@ -1,7 +1,7 @@
 [class*="main-wrapper"] {
   margin: 0 auto;
   max-width: 480px;
-  /* min-height: 100dvh; */
+  min-height: 100vh;
   overflow: hidden;
   background-color: var(--block-bg-color);
 
