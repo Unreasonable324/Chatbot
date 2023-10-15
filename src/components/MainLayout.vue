@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ButtonCartFooter from "./ButtonCartFooter.vue";
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
 const message = ref("123");
 const isMyMessage = ref(false);
 const messages = ref([
@@ -26,50 +26,53 @@ function sendMessage() {
   isMyMessage.value = !isMyMessage.value;
   messages.value.push({ message: message.value, isMyMessage: isMyMessage.value });
 }
+const maxH = computed(() => {
+  return window.screen.height - 50;
+});
+const itemRefs = ref([]);
+function lastMessageScroll(b: string) {
+  var e = itemRefs.value;
+
+  if (!e) return;
+  setTimeout(() => {
+    //@ts-ignore
+    e.scrollIntoView({
+      behavior: b || "auto",
+      block: "end",
+    });
+  }, 0);
+}
+watch(messages.value, () => {
+  lastMessageScroll("smooth");
+  
+});
+
 </script>
 <template>
   <div class="main-wrapper">
-    <div class="page">
-      <div class="chat_wrapper">
-        <div
-          class="chat_message"
-          v-for="i in messages"
-          :style="i.isMyMessage ? 'align-items: flex-start;' : 'align-items: flex-end;'"
-        >
-        <span>
-          {{ i.message }}
-        
-        </span>
-        </div>
-      </div>
-
-      <ButtonCartFooter v-model="message" @sendMessage="sendMessage"></ButtonCartFooter>
+    <div class="messages" :style="`max-height: ${maxH}px`">
+    <div class=" wrap" :style="`min-height: ${maxH}px`">
+      <div class="message" v-for="i in messages">{{ i.message }}</div>
     </div>
+    <div class="" ref="itemRefs"></div>
+    </div>
+
+    <ButtonCartFooter v-model="message" @sendMessage="sendMessage"></ButtonCartFooter>
   </div>
 </template>
 <style>
-.page {
-  width: 100%;
-  /* position: absolute; */
-  /* top: 30px; */
-}
-.page {
-}
-.chat_wrapper {
-  display: grid;
-  /* display: flex;
-  flex-direction: column; */
-  gap: 5px;
-}
-.chat_message {
+.main-wrapper {
   display: flex;
   flex-direction: column;
 }
-.chat_message span{
-width: min-content;
-background: var(--tg-theme-link-color);
-padding: 5px;
-border-radius: 5px;
-
+.wrap{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: flex-end;
+}
+.messages {
+  flex: 1;
+  overflow: scroll;
 }
 </style>

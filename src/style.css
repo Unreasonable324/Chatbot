@@ -3,7 +3,7 @@
   max-width: 480px;
   min-height: 100dvh;
   background-color: var(--block-bg-color);
-  padding: 10px 5px 60px 5px;
+  
 border: black solid 1px;
 }
 body {
