@@ -2,6 +2,7 @@
   margin: 0 auto;
   max-width: 480px;
   min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
   background-color: var(--block-bg-color);
 
