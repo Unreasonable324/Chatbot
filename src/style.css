@@ -5,8 +5,9 @@
   overflow: hidden;
   background-color: var(--block-bg-color);
 
-border: black solid 1px;
+  border: red solid 2px;
 }
+
 body {
   background: var(--tg-theme-secondary-bg-color);
   position: relative;
@@ -16,9 +17,9 @@ body {
 *,
 *:before,
 *:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body,
@@ -31,13 +32,14 @@ h6,
 p,
 ol,
 ul {
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: 'Fira Sans', sans-serif;
-    color: var(--tg-theme-text-color);
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+  color: var(--tg-theme-text-color);
 }
+
 :root {
   /* Tg black theme  */
   /* --tg-theme-bg-color: #212121;
@@ -65,20 +67,21 @@ ul {
 input[type="number"],
 input[type="tel"],
 input[type="text"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    box-shadow: none;
-    border-radius: 0px;
-    border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border: none;
 }
+
 input[type="number"]:focus,
 input[type="tel"]:focus,
 input[type="text"]:focus {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    box-shadow: none;
-    border: none;
-    outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
 }

@@ -22,11 +22,12 @@ const messages = ref([
   { message: "last", isMyMessage: false },
 ]);
 
-function sendMessage() {
+function sendMessage(message = '1231') {
   isMyMessage.value = !isMyMessage.value;
-  messages.value.push({ message: message.value, isMyMessage: isMyMessage.value });
+  messages.value.push({ message: message, isMyMessage: isMyMessage.value });
 }
 const maxH = computed(() => {
+  sendMessage(window.screen.height+'')
   return window.screen.height - 50;
 });
 const itemRefs = ref([]);
