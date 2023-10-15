@@ -49,7 +49,7 @@ watch(messages.value, () => {
 
 </script>
 <template>
-  <div class="main-wrapper" :style="`max-height: ${maxH+50}px`">
+  <div class="main-wrapper" :style="`min-height: ${maxH+50}px; max-height: ${maxH+50}px`">
     <div class="messages" :style="`max-height: ${maxH}px`">
     <div class=" wrap" :style="`min-height: ${maxH}px`">
       <div class="message" v-for="i in messages">{{ i.message }}</div>
@@ -73,6 +73,6 @@ watch(messages.value, () => {
 }
 .messages {
   flex: 1;
-  overflow: scroll;
+  overflow: auto;
 }
 </style>
